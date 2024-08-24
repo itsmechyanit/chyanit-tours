@@ -72,6 +72,7 @@ const createBookingCheckout = async (session) => {
   console.log(`user is ${user}`);
   console.log(`tour is ${tour}`);
   console.log('inside createBooking checkout');
+  console.log(`email is ${session.customer_email}`);
   await Booking.create({
     user,
     tour,
