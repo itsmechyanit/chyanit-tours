@@ -60,6 +60,8 @@ app.use(
   }),
 );
 
+app.enable('trust proxy');
+
 app.use(cors());
 
 app.options('*', cors());
