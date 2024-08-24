@@ -29,7 +29,7 @@ router.post(
 
 router.get(
   '/my-bookings',
-  bookingController.createBookingCheckout,
+
   authController.protect,
   viewController.myBookings,
 );
