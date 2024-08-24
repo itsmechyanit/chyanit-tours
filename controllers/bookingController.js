@@ -75,7 +75,7 @@ const createBookingCheckout = async (session) => {
   });
 };
 
-exports.webhookCheckout = catchAsync(async (req, res, next) => {
+exports.webhookCheckout = async (req, res, next) => {
   const signature = req.headers['stripe-signature'];
 
   let event;
@@ -96,7 +96,7 @@ exports.webhookCheckout = catchAsync(async (req, res, next) => {
   res.status(200).json({
     received: 'true',
   });
-});
+};
 
 exports.getBookings = handler.getAll(Booking);
 exports.getBooking = handler.getOne(Booking);
