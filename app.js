@@ -20,6 +20,7 @@ const viewRouter = require('./routes/viewRoutes');
 const reviewRouter = require('./routes/reviewRoutes');
 const bookingRouter = require('./routes/bookingRoutes');
 const globalErrorController = require('./controllers/errorController');
+const bookingController = require('./controllers/bookingController');
 
 const app = express();
 
@@ -66,6 +67,11 @@ app.options('*', cors());
 app.use(express.static(path.join(__dirname, 'public')));
 app.set('view engine', 'pug');
 app.set('views', path.join(__dirname, 'views'));
+app.post(
+  '/webhook-checkout',
+  express.raw({ type: 'application/json' }),
+  bookingController.webhookCheckout,
+);
 
 app.use(express.json({ limit: '10kb' }));
 app.use(cookieParser());

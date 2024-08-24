@@ -10,7 +10,7 @@ const router = express.Router();
 
 router.get(
   '/',
-  bookingController.createBookingCheckout,
+
   authController.isLoggedIn,
   viewController.getOverview,
 );
@@ -27,6 +27,11 @@ router.post(
   viewController.updateUserData,
 );
 
-router.get('/my-bookings', authController.protect, viewController.myBookings);
+router.get(
+  '/my-bookings',
+  bookingController.createBookingCheckout,
+  authController.protect,
+  viewController.myBookings,
+);
 
 module.exports = router;
