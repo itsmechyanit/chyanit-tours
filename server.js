@@ -12,14 +12,7 @@ const conString = process.env.DATABASE.replace(
   process.env.DATABASE_PASSWORD,
 );
 
-mongoose
-  .connect(conString, {
-    useNewUrlParser: true,
-    useCreateIndex: true,
-    useFindAndModify: false,
-    useUnifiedTopology: true,
-  })
-  .then(() => console.log('DB Connection Successful'));
+mongoose.connect(conString).then(() => console.log('DB Connection Successful'));
 
 const server = app.listen(PORT, '0.0.0.0', () => {
   console.log(`server started listening on ${PORT}`);
