@@ -4,6 +4,7 @@ import { login, logout, signup, forgot, reset } from './login.js';
 import { displayMap } from './leafLet.js';
 import { updateData, updateUserPassword } from './updateSettings.js';
 import { getSession } from './stripe.js';
+import { showAlert } from './alerts.js';
 const form = document.querySelector('.form--login');
 const map = document.querySelector('#map');
 const logoutBtn = document.querySelector('.nav__el-logout');
@@ -116,4 +117,10 @@ if (bookTourBtn) {
     e.target.innerHTML = 'processing';
     await getSession(e.target.dataset.tourId);
   });
+}
+
+const alert = document.querySelector('body').dataset.alert;
+
+if (alert) {
+  showAlert('success', alert, 10);
 }

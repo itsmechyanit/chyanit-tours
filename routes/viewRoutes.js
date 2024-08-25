@@ -4,6 +4,8 @@ const viewController = require('../controllers/viewController');
 
 const authController = require('../controllers/authController');
 
+const bookingController = require('../controllers/bookingController');
+
 const router = express.Router();
 
 router.get(
@@ -29,6 +31,7 @@ router.get(
   '/my-bookings',
 
   authController.protect,
+  bookingController.bookingAlert,
   viewController.myBookings,
 );
 
