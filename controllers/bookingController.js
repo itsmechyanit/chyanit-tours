@@ -83,7 +83,7 @@ const createBookingCheckout = async (session) => {
 };
 
 exports.bookingAlert = (req, res, next) => {
-  const { alert } = req.query();
+  const { alert } = req.query;
   if (!alert) return next();
   res.locals.alert =
     "Your booking has been confirmed. Please check your email for receipt. If you don't see your reserved booking here then please come back later !!!!!";
